@@ -1862,6 +1862,7 @@ a:focus {
   padding: 0 250px;
   text-transform: capitalize;
   letter-spacing: 5px;
+  line-height: 160%;
 }
 @media (max-width: 1199px) {
   .site-footer h2 {
