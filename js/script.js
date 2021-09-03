@@ -552,7 +552,7 @@
                 $("#loader").css("display", "inline-block");
                 $.ajax({
                     type: "POST",
-                    url: "https://mas-mail-test.azurewebsites.net/form",
+                    url: "https://mas-multi-test.azurewebsites.net/form",
                     data: $(form).serialize(),
                     success: function () {
                         $("#loader").hide();
