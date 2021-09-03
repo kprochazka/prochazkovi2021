@@ -537,31 +537,29 @@
                     required: true
                 },
 
-                events: {
-                    required: true
+                sweets: {
+                    required: false
                 }
-
             },
 
             messages: {
-                name: "Please enter your name",
-                email: "Please enter your email",
-                guest: "Select your number of guest",
-                events: "Select your event list"
+                name: "Prosíme vyplňte Vaše jméno",
+                email: "Prosíme vyplňte Váš email",
+                guest: "Zvolte počet hostů"
             },
 
             submitHandler: function (form) {
                 $("#loader").css("display", "inline-block");
                 $.ajax({
                     type: "POST",
-                    url: "https://mas-mail-test.azurewebsites.net/index.php",
+                    url: "https://mas-mail-test.azurewebsites.net/hello",
                     data: $(form).serialize(),
                     success: function () {
                         $("#loader").hide();
                         $("#success").slideDown("slow");
                         setTimeout(function () {
                             $("#success").slideUp("slow");
-                        }, 3000);
+                        }, 5000);
                         form.reset();
                     },
                     error: function () {
@@ -569,12 +567,11 @@
                         $("#error").slideDown("slow");
                         setTimeout(function () {
                             $("#error").slideUp("slow");
-                        }, 3000);
+                        }, 15000);
                     }
                 });
                 return false; // required to block normal submit since you used ajax
             }
-
         });
     }
 

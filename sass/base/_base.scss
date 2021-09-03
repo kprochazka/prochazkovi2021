@@ -135,6 +135,11 @@ a:focus {
 /*** validate rsvp form ***/
 .validate-rsvp-form {
 
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
   .success-error-message {
     margin: 15px 0 0;
   }

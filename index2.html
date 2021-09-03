@@ -656,42 +656,45 @@
                     <form id="rsvp-form"
                           class="form validate-rsvp-form row"
                           method="post">
-                        <div class="col col-sm-6">
-                            <input type="text" name="name" class="form-control" placeholder="Vaše jméno*">
+                        <div class="row">
+                            <div class="col col-sm-6">
+                                <input type="text" name="name" class="form-control" placeholder="Vaše jméno*">
+                            </div>
+                            <div class="col col-sm-6">
+                                <input type="email" name="email" class="form-control" placeholder="Email*">
+                            </div>
                         </div>
-                        <div class="col col-sm-6">
-                            <input type="email" name="email" class="form-control" placeholder="Email*">
+                        <div class="row">
+                            <div class="col col-sm-6">
+                                <select class="form-control" name="guest">
+                                    <option disabled selected>Počet hostů*</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                </select>
+                            </div>
+                            <div class="col col-sm-6">
+                                <input type="text" name="sweets" class="form-control"
+                                       placeholder="Nejoblíbenější cukroví">
+                            </div>
                         </div>
-                        <div class="col col-sm-6">
-                            <select class="form-control" name="guest">
-                                <option disabled selected>Počet hostů*</option>
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
+                        <div class="row">
+                            <div class="col col-sm-6">
+                                <input type="text" name="song" class="form-control"
+                                       placeholder="Písnička na kterou si zamlouvám ženicha/nevěstu">
+                            </div>
+                            <div class="col col-sm-6">
+                                <input type="text" name="party-song" class="form-control"
+                                       placeholder="Písnička na kterou to rozjedu">
+                            </div>
                         </div>
-
-                        <div class="col col-sm-6">
-                            <input type="text" name="sweets" class="form-control" placeholder="Nejoblíbenější cukroví">
-                        </div>
-
-                        <div class="col col-sm-6">
-                            <input type="text" name="song" class="form-control"
-                                   placeholder="Písnička na kterou si zamlouvám ženicha/nevěstu">
-                        </div>
-
-                        <div class="col col-sm-6">
-                            <input type="text" name="party-song" class="form-control"
-                                   placeholder="Písnička na kterou to rozjedu">
-                        </div>
-
                         <div class="col col-sm-12">
                             <label>Jména hostů a věk dětí. Případně jakkékoliv další poznámky:</label>
                             <textarea class="form-control" name="notes"></textarea>
