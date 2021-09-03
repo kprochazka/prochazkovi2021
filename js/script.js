@@ -1,13 +1,14 @@
-(function($) {
+(function ($) {
 
-	"use strict";
+    "use strict";
 
 
     /*------------------------------------------
         = FUNCTIONS
     -------------------------------------------*/
+
     // Check ie and version
-    function isIE () {
+    function isIE() {
         var myNav = navigator.userAgent.toLowerCase();
         return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1], 10) : false;
     }
@@ -20,21 +21,21 @@
         var closeBtn = $(".navigation-holder .close-navbar");
         var navLinks = $("#navbar > ul > li > a[href^='#']");
 
-        openBtn.on("click", function() {
+        openBtn.on("click", function () {
             if (!navbar.hasClass("slideInn")) {
                 navbar.addClass("slideInn");
             }
             return false;
         })
 
-        closeBtn.on("click", function() {
+        closeBtn.on("click", function () {
             if (navbar.hasClass("slideInn")) {
                 navbar.removeClass("slideInn");
             }
             return false;
         })
 
-        navLinks.on("click", function() {
+        navLinks.on("click", function () {
             if (navbar.hasClass("slideInn")) {
                 navbar.removeClass("slideInn");
             }
@@ -72,10 +73,10 @@
         if (windowWidth <= 991) {
             subMenu.hide();
             megamenu.hide();
-            menuItemWidthSubMenu.on("click", function(e) {
+            menuItemWidthSubMenu.on("click", function (e) {
                 var $this = $(this);
                 $this.siblings().slideToggle();
-                 e.preventDefault();
+                e.preventDefault();
                 e.stopImmediatePropagation();
             })
         } else if (windowWidth > 991) {
@@ -98,7 +99,7 @@
             nav_height = nav.outerHeight();
 
 
-        sections.each(function() {
+        sections.each(function () {
             var top = $(this).offset().top - nav_height,
                 bottom = top + $(this).outerHeight();
 
@@ -118,14 +119,14 @@
         var links = $scrollLinks;
         var topGap = $topOffset;
 
-        links.on("click", function() {
-            if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+        links.on("click", function () {
+            if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
                 var target = $(this.hash);
-                target = target.length ? target : $("[name=" + this.hash.slice(1) +"]");
+                target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
                 if (target.length) {
                     $("html, body").animate({
-                    scrollTop: target.offset().top - topGap
-                }, 1000, "easeInOutExpo");
+                        scrollTop: target.offset().top - topGap
+                    }, 1000, "easeInOutExpo");
                     return false;
                 }
             }
@@ -137,12 +138,12 @@
     // Parallax background
     function bgParallax() {
         if ($(".parallax").length) {
-            $(".parallax").each(function() {
+            $(".parallax").each(function () {
                 var height = $(this).position().top;
-                var resize     = height - $(window).scrollTop();
+                var resize = height - $(window).scrollTop();
                 var parallaxSpeed = $(this).data("speed");
                 var doParallax = -(resize / parallaxSpeed);
-                var positionValue   = doParallax + "px";
+                var positionValue = doParallax + "px";
                 var img = $(this).data("bg-image");
 
                 $(this).css({
@@ -151,7 +152,7 @@
                     backgroundSize: "cover"
                 });
 
-                if ( window.innerWidth < 768) {
+                if (window.innerWidth < 768) {
                     $(this).css({
                         backgroundPosition: "center center"
                     });
@@ -166,12 +167,12 @@
     // Hero slider background setting
     function sliderBgSetting() {
         if ($(".hero-slider .slide-item").length) {
-            $(".hero-slider .slide-item").each(function() {
+            $(".hero-slider .slide-item").each(function () {
                 var $this = $(this);
                 var img = $this.find(".slider-bg").attr("src");
 
                 $this.css({
-                    backgroundImage: "url("+ img +")",
+                    backgroundImage: "url(" + img + ")",
                     backgroundSize: "cover",
                     backgroundPosition: "center center"
                 })
@@ -218,18 +219,17 @@
     }
 
 
-
     /*------------------------------------------
         = HIDE PRELOADER
     -------------------------------------------*/
     function preloader() {
-        if($('.preloader').length) {
-            $('.preloader').delay(100).fadeOut(500, function() {
+        if ($('.preloader').length) {
+            $('.preloader').delay(100).fadeOut(500, function () {
 
                 //active wow
                 wow.init();
 
-                if($(".save-the-date").length) {
+                if ($(".save-the-date").length) {
                     popupSaveTheDateCircle();
                 }
 
@@ -245,11 +245,11 @@
         = WOW ANIMATION SETTING
     -------------------------------------------*/
     var wow = new WOW({
-        boxClass:     'wow',      // default
+        boxClass: 'wow',      // default
         animateClass: 'animated', // default
-        offset:       0,          // default
-        mobile:       true,       // default
-        live:         true        // default
+        offset: 0,          // default
+        mobile: true,       // default
+        live: true        // default
     });
 
 
@@ -258,9 +258,9 @@
     -------------------------------------------*/
     if ($(".gallery-fancybox").length) {
         $(".fancybox").fancybox({
-            openEffect  : "elastic",
-            closeEffect : "elastic",
-            wrapCSS     : "project-fancybox-title-style"
+            openEffect: "elastic",
+            closeEffect: "elastic",
+            wrapCSS: "project-fancybox-title-style"
         });
     }
 
@@ -269,17 +269,17 @@
         = POPUP VIDEO
     -------------------------------------------*/
     if ($(".video-play-btn").length) {
-        $(".video-play-btn").on("click", function(){
+        $(".video-play-btn").on("click", function () {
             $.fancybox({
                 href: this.href,
                 type: $(this).data("type"),
-                'title'         : this.title,
-                helpers     : {
-                    title : { type : 'inside' },
-                    media : {}
+                'title': this.title,
+                helpers: {
+                    title: {type: 'inside'},
+                    media: {}
                 },
 
-                beforeShow : function(){
+                beforeShow: function () {
                     $(".fancybox-wrap").addClass("gallery-fancybox");
                 }
             });
@@ -299,7 +299,6 @@
     });
 
 
-
     /*------------------------------------------
         = ACTIVE GALLERY POPUP IMAGE
     -------------------------------------------*/
@@ -309,7 +308,7 @@
             type: 'image',
 
             gallery: {
-              enabled: true
+                enabled: true
             },
 
             zoom: {
@@ -317,7 +316,7 @@
 
                 duration: 300,
                 easing: 'ease-in-out',
-                opener: function(openerElement) {
+                opener: function (openerElement) {
                     return openerElement.is('img') ? openerElement : openerElement.find('img');
                 }
             }
@@ -336,13 +335,12 @@
 
                 duration: 300,
                 easing: 'ease-in-out',
-                opener: function(openerElement) {
+                opener: function (openerElement) {
                     return openerElement.is('img') ? openerElement : openerElement.find('img');
                 }
             }
         });
     }
-
 
 
     /*------------------------------------------
@@ -352,7 +350,7 @@
         if ($(".sortable-gallery .gallery-filters").length) {
             var $container = $('.gallery-container');
             $container.isotope({
-                filter:'*',
+                filter: '*',
                 animationOptions: {
                     duration: 750,
                     easing: 'linear',
@@ -360,12 +358,12 @@
                 }
             });
 
-            $(".gallery-filters li a").on("click", function() {
+            $(".gallery-filters li a").on("click", function () {
                 $('.gallery-filters li .current').removeClass('current');
                 $(this).addClass('current');
                 var selector = $(this).attr('data-filter');
                 $container.isotope({
-                    filter:selector,
+                    filter: selector,
                     animationOptions: {
                         duration: 750,
                         easing: 'linear',
@@ -385,13 +383,13 @@
     -------------------------------------------*/
     function masonryGridSetting() {
         if ($('.masonry-gallery').length) {
-            var $grid =  $('.masonry-gallery').masonry({
+            var $grid = $('.masonry-gallery').masonry({
                 itemSelector: '.grid',
                 columnWidth: '.grid',
                 percentPosition: true
             });
 
-            $grid.imagesLoaded().progress( function() {
+            $grid.imagesLoaded().progress(function () {
                 $grid.masonry('layout');
             });
         }
@@ -453,12 +451,12 @@
 
         var imgHolder = $(".wedding-couple-section .gb .img-holder");
 
-        imgHolder.each(function() {
+        imgHolder.each(function () {
             var $this = $(this);
             var imgHolderPic = $this.find("img").attr("src");
 
             $this.css({
-                backgroundImage: "url("+ imgHolderPic +")",
+                backgroundImage: "url(" + imgHolderPic + ")",
                 backgroundSize: "cover",
                 backgroundPosition: "center center"
             })
@@ -470,12 +468,12 @@
         = COUNTDOWN CLOCK
     -------------------------------------------*/
     if ($("#clock").length) {
-        $('#clock').countdown('2021/10/02', function(event) {
+        $('#clock').countdown('2021/10/02', function (event) {
             var $this = $(this).html(event.strftime(''
-            + '<div class="box"><div>%D</div> <span>Dní</span> </div>'
-            + '<div class="box"><div>%H</div> <span>Hodin</span> </div>'
-            + '<div class="box"><div>%M</div> <span>Minut</span> </div>'
-            + '<div class="box"><div>%S</div> <span>Sekund</span> </div>'));
+                + '<div class="box"><div>%D</div> <span>Dní</span> </div>'
+                + '<div class="box"><div>%H</div> <span>Hodin</span> </div>'
+                + '<div class="box"><div>%M</div> <span>Minut</span> </div>'
+                + '<div class="box"><div>%S</div> <span>Sekund</span> </div>'));
         });
     }
 
@@ -509,13 +507,13 @@
             margin: 20,
             stagePadding: 10,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
-                480 : {
+                480: {
                     items: 2
                 },
-                768 : {
+                768: {
                     items: 3
                 }
             }
@@ -559,18 +557,18 @@
                     url: "https://mas-mail-test.azurewebsites.net/index.php",
                     data: $(form).serialize(),
                     success: function () {
-                        $( "#loader").hide();
-                        $( "#success").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#success").slideUp( "slow" );
+                        $("#loader").hide();
+                        $("#success").slideDown("slow");
+                        setTimeout(function () {
+                            $("#success").slideUp("slow");
                         }, 3000);
                         form.reset();
                     },
-                    error: function() {
-                        $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
-                        setTimeout(function() {
-                        $( "#error").slideUp( "slow" );
+                    error: function () {
+                        $("#loader").hide();
+                        $("#error").slideDown("slow");
+                        setTimeout(function () {
+                            $("#error").slideUp("slow");
                         }, 3000);
                     }
                 });
@@ -584,11 +582,11 @@
     /*------------------------------------------
         = TOGGLE MUSUC BIX
     -------------------------------------------*/
-    if($(".music-box").length) {
+    if ($(".music-box").length) {
         var musicBtn = $(".music-box-toggle-btn"),
             musicBox = $(".music-holder");
 
-        musicBtn.on("click", function() {
+        musicBtn.on("click", function () {
             musicBox.toggleClass("toggle-music-box");
             return false;
         })
@@ -598,8 +596,8 @@
     /*------------------------------------------
         = BACK TO TOP
     -------------------------------------------*/
-    if($(".back-to-top-btn").length) {
-        $(".back-to-top-btn").on("click", function() {
+    if ($(".back-to-top-btn").length) {
+        $(".back-to-top-btn").on("click", function () {
             $("html,body").animate({
                 scrollTop: 0
             }, 2000, "easeInOutExpo");
@@ -616,7 +614,7 @@
             items: 1,
             smartSpeed: 500,
             nav: true,
-            navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
             dots: false
         })
     }
@@ -633,7 +631,7 @@
         });
 
         // Automatic drops
-        setInterval(function() {
+        setInterval(function () {
             var $el = $('.ripple');
             var x = Math.random() * $el.outerWidth();
             var y = Math.random() * $el.outerHeight();
@@ -688,35 +686,33 @@
     }
 
 
+    /*==========================================================================
+       WHEN DOCUMENT LOADING
+   ==========================================================================*/
+    $(window).on('load', function () {
 
-     /*==========================================================================
-        WHEN DOCUMENT LOADING
-    ==========================================================================*/
-        $(window).on('load', function() {
+        preloader();
 
-            preloader();
+        sliderBgSetting();
 
-            sliderBgSetting();
+        toggleMobileNavigation();
 
-            toggleMobileNavigation();
+        smallNavFunctionality();
 
-            smallNavFunctionality();
+        //set the couple section groom bride two col equal height
+        if ($(".wedding-couple-section").length) {
+            setTwoColEqHeight($(".wedding-couple-section .gb .img-holder"), $(".wedding-couple-section .gb .details"));
+        }
 
-            //set the couple section groom bride two col equal height
-            if($(".wedding-couple-section").length) {
-                setTwoColEqHeight($(".wedding-couple-section .gb .img-holder"), $(".wedding-couple-section .gb .details"));
-            }
+        smoothScrolling($("#navbar > ul > li > a[href^='#']"), $(".header-style-1 .navigation").innerHeight());
 
-            smoothScrolling($("#navbar > ul > li > a[href^='#']"), $(".header-style-1 .navigation").innerHeight());
-
-        });
-
+    });
 
 
     /*==========================================================================
         WHEN WINDOW SCROLL
     ==========================================================================*/
-    $(window).on("scroll", function() {
+    $(window).on("scroll", function () {
 
         bgParallax();
 
@@ -735,16 +731,15 @@
     /*==========================================================================
         WHEN WINDOW RESIZE
     ==========================================================================*/
-    $(window).on("resize", function() {
+    $(window).on("resize", function () {
         toggleClassForSmallNav();
         //smallNavFunctionality();
 
         clearTimeout($.data(this, 'resizeTimer'));
-        $.data(this, 'resizeTimer', setTimeout(function() {
+        $.data(this, 'resizeTimer', setTimeout(function () {
             smallNavFunctionality();
         }, 200));
     });
-
 
 
 })(window.jQuery);
