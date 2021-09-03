@@ -167,6 +167,10 @@ a:focus {
 .validate-rsvp-form .success-error-message {
   margin: 15px 0 0;
 }
+.validate-rsvp-form label {
+  font-weight: normal;
+  color: #fff;
+}
 .validate-rsvp-form label.error {
   color: red;
   margin: 5px 0 0 0;

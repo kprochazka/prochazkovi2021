@@ -653,43 +653,59 @@
 
             <div class="row content">
                 <div class="col col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p>Please reserve before December 16th, 2017.</p>
                     <form id="rsvp-form"
                           class="form validate-rsvp-form row"
                           method="post">
                         <div class="col col-sm-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name*">
+                            <input type="text" name="name" class="form-control" placeholder="Vaše jméno*">
                         </div>
                         <div class="col col-sm-6">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email*">
+                            <input type="email" name="email" class="form-control" placeholder="Email*">
                         </div>
                         <div class="col col-sm-6">
                             <select class="form-control" name="guest">
-                                <option disabled selected>Number Of Guest*</option>
+                                <option disabled selected>Počet hostů*</option>
+                                <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
                             </select>
                         </div>
+
                         <div class="col col-sm-6">
-                            <select class="form-control" name="events">
-                                <option disabled selected>I Am Attending*</option>
-                                <option>Al events</option>
-                                <option>Wedding ceremony</option>
-                                <option>Reception party</option>
-                            </select>
+                            <input type="text" name="sweets" class="form-control" placeholder="Nejoblíbenější cukroví">
                         </div>
+
+                        <div class="col col-sm-6">
+                            <input type="text" name="song" class="form-control"
+                                   placeholder="Písnička na kterou si zamlouvám ženicha/nevěstu">
+                        </div>
+
+                        <div class="col col-sm-6">
+                            <input type="text" name="party-song" class="form-control"
+                                   placeholder="Písnička na kterou to rozjedu">
+                        </div>
+
                         <div class="col col-sm-12">
-                            <textarea class="form-control" name="notes" placeholder="Your Message*"></textarea>
+                            <label>Jména hostů a věk dětí. Případně jakkékoliv další poznámky:</label>
+                            <textarea class="form-control" name="notes"></textarea>
                         </div>
+
                         <div class="col col-sm-12 submit-btn">
-                            <button type="submit" class="submit">Send Invitation</button>
+                            <button type="submit" class="submit">Odeslat</button>
                             <span id="loader"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i></span>
                         </div>
                         <div class="col col-md-12 success-error-message">
-                            <div id="success">Thank you</div>
-                            <div id="error"> Error occurred while sending email. Please try again later.</div>
+                            <div id="success">Děkujeme</div>
+                            <div id="error">Chybička se vloudila, zkuste to za chvíli znova, nebo nás kontaktujte na
+                                email (luci.divisova seznam.cz).
+                            </div>
                         </div>
                     </form>
                 </div>
